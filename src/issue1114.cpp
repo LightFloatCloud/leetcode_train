@@ -28,14 +28,14 @@ public:
     }
 
     void second(function<void()> printSecond) {
-        std::unique_lock<std::mutex> lock1(_mutex1);
+        std::unique_lock<std::mutex> lock1(_mutex1); //结束自动解锁
         // printSecond() outputs "second". Do not change or remove this line.
         printSecond();
         _mutex2.unlock();
     }
 
     void third(function<void()> printThird) {
-        std::unique_lock<std::mutex> lock2(_mutex2);
+        std::unique_lock<std::mutex> lock2(_mutex2); //结束自动解锁
         // printThird() outputs "third". Do not change or remove this line.
         printThird();
     }
